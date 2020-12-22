@@ -1,4 +1,5 @@
-FROM node:10.15.0-alpine
+FROM node:15.4.0-apline3.10
+#FROM node:10.15.0-alpine
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -77,11 +78,11 @@ RUN cd ffmpeg* && \
   --enable-openssl \
   --enable-small \
   --enable-version3 && \
-#make -j4 && \
-#make install && \
-#make distclean && \
-#rm -rf "/tmp/ffmpeg"  && \
-#apk del --purge .build-dependencies && \
+make -j4 && \
+make install && \
+make distclean && \
+rm -rf "/tmp/ffmpeg"  && \
+apk del --purge .build-dependencies && \
 rm -rf /var/cache/apk/*
 
 WORKDIR /usr/src/app
