@@ -29,7 +29,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build . -t node-media-server
+          echo "docker build . -t node-media-server"
+          curl https://raw.githubusercontent.com/soluble-ai/soluble-cli/master/linux-install.sh | sh
+          ./soluble auth profile
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      SOLUBLE_API_TOKEN: ${{ secrets.SOLUBLE_API_TOKEN }}
+      SOLUBLE_ORG_ID: ${{ secrets.SOLUBLE_ORG_ID }}
+      #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
